@@ -4,14 +4,14 @@
     "geometria": "retangulo",
     "params": {
       "largura_m": 100.0,
-      "comprimento_m": 20.0
+      "comprimento_m": 100.0
     }
   },
   {
     "cultura": "cafe",
     "geometria": "circulo",
     "params": {
-      "raio_m": 20.0
+      "raio_m": 90.0
     }
   }
 ]

@@ -1,0 +1,4 @@
+ Vídeo mostrando a tela CLI do computador, comprovando 
+ o funcionamento completo da sua aplicação Python e R.
+
+Link: https://youtu.be/ovjBKOIR6HM
