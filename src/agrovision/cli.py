@@ -5,7 +5,7 @@ from rich.prompt import Prompt, Confirm, IntPrompt, FloatPrompt
 from typing import Dict, Any
 from . import storage, domain
 
-app = typer.Typer(add_completion=False)
+app = typer.Typer(add_completion=False, no_args_is_help=True)
 console = Console()
 
 def _print_table(items):
@@ -103,6 +103,15 @@ def menu():
             console.print("[green]Exportado para exports/agrovision.csv[/]")
         else:
             console.print("[bold]Até mais![/]"); break
+
+@app.callback(invoke_without_command=True)
+def _default(ctx: typer.Context):
+    if ctx.invoked_subcommand is None:
+        menu()
+
+def main():
+    """Entry point para console_scripts."""
+    app()
 
 if __name__ == "__main__":
     app()
