@@ -1,0 +1,14 @@
+[project]
+name = "agrovision"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = ["typer>=0.12", "rich>=13"]
+
+[project.scripts]
+agrovision = "agrovision.cli:app"
+
+[tool.mamba]
+# mamba roda por CLI; aqui é informativo
+
+[tool.pytest.ini_options]
+addopts = "-q"
