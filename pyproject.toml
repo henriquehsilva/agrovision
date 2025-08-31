@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "agrovision"
 version = "0.1.0"
@@ -5,10 +9,10 @@ requires-python = ">=3.12"
 dependencies = ["typer>=0.12", "rich>=13"]
 
 [project.scripts]
-agrovision = "agrovision.cli:app"
+agrovision = "agrovision.cli:main"
 
-[tool.mamba]
-# mamba roda por CLI; aqui é informativo
+[tool.setuptools]
+package-dir = {"" = "src"}
 
-[tool.pytest.ini_options]
-addopts = "-q"
+[tool.setuptools.packages.find]
+where = ["src"]
