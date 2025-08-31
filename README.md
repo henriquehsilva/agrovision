@@ -12,7 +12,7 @@ Aplicação em Python para Agricultura Digital com:
 - **Docker** para padronizar o ambiente
 
 ## 🔧 Stack
-Python 3.10+ · Typer · Rich · mamba · expects · R (r-base) · Docker
+Python 3.12+ · Typer · Rich · mamba · expects · R (r-base) · Docker
 
 ## 🗂 Estrutura
 (ver pasta raiz do projeto)
