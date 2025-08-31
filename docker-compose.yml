@@ -1,0 +1,43 @@
+x-common: &common
+  image: agrovision:latest
+  working_dir: /app
+  volumes:
+    - ./:/app
+
+services:
+  # Menu interativo (Typer + Rich). Use "run" para ter stdin/tty próprios.
+  app:
+    <<: *common
+    tty: true
+    stdin_open: true
+    command: bash -lc "agrovision"
+
+  # Shell dentro do container (útil p/ depurar, rodar comandos manuais de Python/R).
+  shell:
+    <<: *common
+    tty: true
+    stdin_open: true
+    command: bash
+
+  # Testes de unidade (mamba + expects).
+  test:
+    <<: *common
+    tty: true               
+    stdin_open: true
+    environment:
+      TERM: xterm-256color  
+      CLICOLOR_FORCE: "1"   
+    command: bash -lc "mamba --format=documentation"
+
+  # Estatística em R (média/desvio por cultura com base no CSV exportado).
+  r-stats:
+    <<: *common
+    command: bash -lc "Rscript r/estatisticas.R"
+
+  # Clima via R (Open-Meteo). Passe lat/lon via args no 'run' se quiser.
+  r-clima:
+    <<: *common
+    environment:
+      LAT: "-23.55"
+      LON: "-46.63"
+    command: bash -lc 'Rscript r/clima.R "${LAT}" "${LON}"'
