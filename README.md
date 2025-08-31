@@ -28,19 +28,22 @@ docker compose up
 # 3) inicializa do BD
 printf "[]\n" > data/agrovision.json
 
-# 4) Abrir o menu interativo
+# 4) define ENV's
+mv .env.example .env
+
+# 5) Abrir o menu interativo
 docker compose run --rm app agrovision menu
 
-# 5) Abrir um shell no container
+# 6) Abrir um shell no container
 docker compose run --rm shell
 
-# 6) Rodar testes (mamba)
+# 7) Rodar testes (mamba)
 docker compose run --rm test
 
-# 7) Estatísticas em R (precisa do CSV exportado pelo menu antes)
+# 8) Estatísticas em R (precisa do CSV exportado pelo menu antes)
 docker compose run --rm r-stats
 
-# 8) Clima em R (padrão LAT/LON do compose) 
+# 9) Clima em R (padrão LAT/LON do compose) 
 docker compose run --rm r-clima
 
 # ...ou sobrescrevendo coordenadas:
