@@ -1,4 +1,4 @@
-# 🌱 agrovision — FarmTech Solutions
+# 🌱 AgroVision — FarmTech Solutions
 
 Aplicação em Python para Agricultura Digital com:
 - **2 culturas** (ex.: soja e café)
